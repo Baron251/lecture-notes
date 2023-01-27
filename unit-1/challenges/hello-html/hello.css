@@ -1,0 +1,38 @@
+body{
+background-image:url(https://i.imgflip.com/4tsika.jpg);
+background-size: cover;
+}
+.Navbar{
+border: 3px solid;
+}
+main{
+    background-color: green;
+    width: fit-content;
+    margin-top: 20px;
+}
+p{
+    background-color: green;
+    border: 1px solid black;
+    width: fit-content;
+    
+}
+
+footer{
+    position:fixed;
+    bottom: 0;
+    background-color: gray;
+    align-self: center;
+}
+.thicc{
+    margin-left: 1550px;
+    margin-top: -800px;
+    position: absolute;
+}
+button:hover{
+    background: yellowgreen;
+}
+/* Images */
+
+.bingus{
+    margin-top: 25px;
+}
