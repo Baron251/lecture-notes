@@ -1,0 +1,61 @@
+.sample {
+    height: 50px;
+    border: solid black 1px;
+    background-color: darkorange;
+    margin: 10px;
+}
+
+#block-sample {
+    display: block;
+}
+
+#inline-sample {
+    display: inline;
+}
+
+#none-sample {
+    display: none;
+}
+
+.block-elements > *{
+    border: 1px solid blue;
+}
+
+.inline-elements > * {
+    border: 1px solid red;
+}
+
+#relative-sample {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 20px;
+    left: 100px;
+    background-color: green;
+/* Percents on top, left, right and bottom put it at a percentage of the screen */
+}
+
+#absolute-sample {
+    height: 50px;
+    width: 50px;
+    position: absolute; /* CHANGED */
+    top: 20px; 
+    right: 30px; /* CHANGED */
+    background-color: blue; /* CHANGED */
+}
+#fixed-sample {
+    height: 50px;
+    width: 50px;
+    position: fixed; /*CHANGED */
+    bottom: 20px;
+    left: 100px; /*CHANGED*/
+    background-color: black; /* CHANGED*/
+}
+
+#static-sample {
+    height: 50px;
+    width: 50px;
+    position: static; /*CHANGED */
+    left: 100px; /*DOESN'T MOVE*/
+    background-color: red; /* CHANGED */
+}
