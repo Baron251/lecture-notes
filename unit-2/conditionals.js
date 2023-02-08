@@ -100,15 +100,13 @@ if (!rain) {
   console.log("Get your jacket!");
 }
 
-
 // ? Switch Statement
-
 /* 
     keywords:
         - switch
         - case
         - break
-            - takes us out of or code block
+            - takes us out of our code block
         - default
             - run if no cases match
     Structure:
@@ -146,39 +144,91 @@ switch (officeCharacter) {
     console.log(`I'm sorry, ${officeCharacter}, but do I know you?`);
 }
 
-// String interpolation: using a variable in a string with backticks, dollar sign and {}
+// String interpolation: using a variable in a string with backticks, dollar sign, and {}
 let myName = "Kate";
 let bff = "Ben";
 console.log(`My name is ${myName} and my best friendo is ${bff}!`); // interpolation happens with use of backtick and ${}
 console.log("My name is ${myName} and my best friendo is ${bff}!"); // Just a normie string
 
-let num = 5;
+// let num = 5;
+let num = -7;
+// let num = -20;
 
 switch (true) {
-    case num < 0 && num > -10:
-        console.log("Case 1 ran.");
-        break;
-    case num > 0:
-        console.log("Case 2 ran.");
-        break;
-    default:
-        console.log("Default ran, no case worked.");
-        break;
+  case num < 0 && num > -10:
+    console.log("Case 1 ran.");
+    break;
+  case num > 0:
+    console.log("Case 2 ran.");
+    break;
+  default:
+    console.log("Default ran, no case worked.");
+    break;
 }
 
-let grade = B;
+let grade = "A";
 switch (true) {
-    case grade == "A":
-    case grade == "B":
-        console.log("Great job.")
-        break;
-    case grade == "C":
-        console.log("Doing well, but maybe study a bit more.")
-        break;
-    case grade == "D":
-    case grade == "F":
-        console.log("Uh, I would really start studying...")
-        break;
-    default:
-         console.log("That's not a grade value...")
+  case grade == "A":
+  case grade == "B":
+    console.log("Great job.");
+    break;
+  case grade == "C":
+    console.log("Doing well, but maybe study a bit more.");
+    break;
+  case grade == "D":
+  case grade == "F":
+    console.log("Uh, I would really start studying...");
+    break;
+  default:
+    console.log("That's not a grade value...");
 }
+
+// ? Ternary
+/* 
+    Always a If/Else style conditional at minimum.
+    Structure:
+    expression ? true : false;
+*/
+
+// let expression = false;
+let expression = true;
+
+expression ? console.log("Runs true") : console.log("Runs false");
+
+let newNum = 6;
+
+newNum > 0
+  ? console.log("Yes, greater than 0")
+  : console.log("No, less than 0.");
+
+// as an if/else
+if (newNum > 0) {
+  console.log("yes");
+} else {
+  console.log("no");
+}
+
+// ? Else/If
+
+let anotherNum = 3;
+
+if (anotherNum == 0) {
+  console.log("Hello");
+} else if (anotherNum > 0) {
+  console.log("Hey there!");
+} else {
+  console.log("Goodbye");
+}
+
+anotherNum == 0
+  ? console.log("Hello")
+  : anotherNum > 0
+  ? console.log("hi")
+  : console.log("goodbye again");
+
+let numOne = 5;
+// let numOne = -5;
+let numTwo = 2;
+
+let value = numOne + numTwo > 1 ? numOne + numTwo : 0;
+console.log(value);
