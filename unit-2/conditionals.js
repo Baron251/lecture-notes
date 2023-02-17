@@ -210,7 +210,7 @@ if (newNum > 0) {
 
 // ? Else/If
 
-let anotherNum = 3;
+let anotherNum = -3;
 
 if (anotherNum == 0) {
   console.log("Hello");
