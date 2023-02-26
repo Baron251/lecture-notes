@@ -5,8 +5,7 @@ let theSimpsons = {
     est: 1989,
     genre: "animated",
     seasons: {
-      "season one": [
-        {
+      "season one": [{
           episode_title: "Simpson Roasting on an Open Fire",
           aired: "1989-12-17",
         },
