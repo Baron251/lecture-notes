@@ -1,0 +1,4 @@
+# Files here will not be pushed to GH
+/node_modules
+
+# When cloning down a project that ignores items: run the command "npm install" to aquire all dependencies/files needed
