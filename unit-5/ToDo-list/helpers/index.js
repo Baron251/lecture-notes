@@ -30,6 +30,9 @@ function logTime(req, res, next) {
         req.timePosted
       );
     
+      // App continue out of the function and onto what's next
+  next();
+
 };
 
 
