@@ -16,6 +16,9 @@ const routes = require("./controller/routes.controller")
 // Require in the index.js from helpers(./helpers) w/ object destructuring
 const { logTime } = require('./helpers/index');
 
+// Create a variable to require in and have CORS dependency accessible
+const cors = require("cors")
+
 
 // ----------App Functionality/ What it does next---------------
 

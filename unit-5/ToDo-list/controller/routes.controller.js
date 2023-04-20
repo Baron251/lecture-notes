@@ -24,9 +24,9 @@ ID's: usually a db will create an id automatically per data item
   - ID's are meant to be a unique value: We target it because it is unique to the data. 
 */
 router.get("/:id", (req, res) => {
-	//console.log(req.url); // this will show us our endpoint
+	//?console.log(req.url); // this will show us our endpoint
 	// Detail an object with a key of "id" (which is our parameter name) and the value within the URL we passed to it.
-	//console.log(req.params);
+	//?console.log(req.params);
 	/* 
         - used to help us locate one item in our database.
         - ID typically has a unique value to help us find that ONE item.
@@ -36,7 +36,7 @@ router.get("/:id", (req, res) => {
 		// use object destructuring so id is equal to our /# (AKA our req.params)
 		let { id } = req.params;
 		let results = db.filter((i) => i.id == id);
-		// console.log("results: ", results);
+		//? console.log("results: ", results);
 		res.status(200).json({
 			status: `Found item at id: ${id}`,
 			results: results,
@@ -131,19 +131,60 @@ router.put("/:id", (req, res) => {
 			});
 			// whatever you're testeing ? (this runs if true (200 status good)) : (this runs if false (404/500 status bad))
 			result
-				? res
-						.status(200)
-						.json({
-							status: ` ID: ${id} was successfully updated`,
-							object: result,
-						})
+				? res.status(200).json({
+						status: ` ID: ${id} was successfully updated`,
+						object: result,
+				  })
 				: res.status(404).json({ status: `ID: ${id} was not found.` });
 		});
 	} catch (err) {
-        res.status(500).send({
-            err:err.message
-        })
-    }
+		res.status(500).send({
+			err: err.message,
+		});
+	}
 });
+// TODO: Delete a task
+/* 
+	- pass ID as a param, Numberified it: const id = Number(req.params.id);
+	- read file, fs.readFile()
+	- filter to match the param value
+		- return what doesn't match
+	- write to file, fs.writeFile()
+*/
+router.delete("/:id", (req, res) => {
+	try {
+	  const id = Number(req.params.id);
+  
+	  fs.readFile("./helpers/db.json", (err, data) => {
+		if (err) throw err;
+  
+		// Takes the JSON content from the file location, parse it out into a plain array with normal JS objects instead of JSON objects
+		const db = JSON.parse(data);
+  
+		// declare a var that holds and does all the sorting/filtering logic.
+		const filteredDB = db.filter((e) => {
+		  // we want to check for the id... and return only what doesn't match
+		  if (e.id !== id) {
+			return e;
+		  }
+		});
+  
+		fs.writeFile("./helpers/db.json", JSON.stringify(filteredDB), (err) =>
+		  console.log(err)
+		);
+  
+		res.status(200).json({
+		  status: `ID: ${id} was successfully deleted.`,
+		});
+	  });
+	} catch (err) {
+	  res.status(500).json({
+		error: err.message,
+	  });
+	}
+  });
 
-module.exports = router;
+
+
+
+			module.exports = router;

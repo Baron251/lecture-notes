@@ -259,7 +259,7 @@ function buildTable() {
     // testing function with event listener: it worked!
     // console.log("Running BuildTable Function on button click!")
 
-    // Perform/create something for each item of the arrya
+    // Perform/create something for each item of the array
     // Use the forEach method to create a div, title, and p tag for each item
     myList.forEach((color, i) => {
         // test w/ a console.log

@@ -27,4 +27,17 @@ router.post("/register", (req, res) => {
 	}
 });
 
+
+/* 
+	Use the URL of the page to query something and get a response
+
+	This has particular syntax(symbols)
+	- Anything after the endpoint can be extracted from it.
+		ex: /todo/query/?firstName="John"
+
+	Build a query in a GET route:
+*/
+router.get("/query/", (req, res) => {
+	
+})
 module.exports = router;

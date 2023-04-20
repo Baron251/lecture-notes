@@ -1,5 +1,1 @@
-[
-	{ "id": 1, "item": "Pet cat" },
-	{ "id": 2, "item": "Cook Dinner" },
-	{ "id": 3, "item": "Get cookies" }
-]
+[{"id":1,"item":"Pet cat"},{"id":2,"item":"Cook Dinner"},{"post_id":3,"title":"Third Post MADE","author":"ME","body":"If you're seeing this, it worked again"},{"id":4,"item":"Take car to mechanic"}]

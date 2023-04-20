@@ -1,51 +1,103 @@
-# Server Setup
+# Getting Started
 
-Step 1:
-- In terminal, in project folder, we run the command 'npm init -y'.
+- create a `package.json`
+  - In terminal: cli command: `npm init -y`
+- Install our dependencies
+  - express: `npm i express`
+- Create a `.gitignore` file
 
-- This is telling the Node Package Manager(NPM) to install(init) with all the base default options for a project (-y || --yes)
-- You will see a lot happening and find a new file in your project called package-lock.json and a folder called node_modules
+  - `/node_modules` within .gitignore
+    - tells our local repository to ignore the `node_modules` folder when backing up.
 
-Step 2: Install needed dependencies in the same terminal 
+- node_modules folder
 
-- To install Express, run 'npm i express'
-- Node Package Manager(npm) install(i) express
-- Brings in our node_modules and package-lock.json
+  - Provides us access to any "behind the scenes" code that helps run express and any dependencies.
+  - If anything gets deleted or you're cloning down a project, use `npm install` to get those files back/installed.
 
-Step 3: We create a file within our project titled '.gitignore'
+- package-lock.json
 
-    - In the '.gitignore' file, we will add '/node_modules'. 
-    - This tells our local repository to ignore the 'node_modules' folder.
-    - When cloning down a project that ignores items: run the command "npm install" to aquire all dependencies/files needed
+  - locks project into required dependencies. Helps with our versioning
+  - updated our `package.json` with `"main": "app.js"` instead of `index.js`.
 
-    ---
+- Create a root JS file
 
-    What does it all mean??
+  - `app.js` or `index.js`
 
-The Flow with Words:
-![Written description of what's happening with the dataflow/infrastructure.](./assets/flow.PNG)
+- Use the command `nodemon` to start the server
+  - nodemon is a way for our server to continue to run while we are building/making changes.
+    - To stop the server ctrl+c
 
-The Flow in Pictures:
-![The exact full stack flow and infrastructure we will use in class.](./assets/Full%20Stack%20Infrastructure.png)
+### Controllers
 
-![A simple flow image.](./assets/Software%20Flow.png)
+Our controllers help us set routes for various endpoints. Depending on how we build the path will determine how it responds.
 
-- An API and the Server are two different things
-- An API is an Application Programming Interface, which is a way to provide information for other applications (communication among applications, ex. the front end web page can communicate with the server).
-- An API provides access to the server.
-- A server is an application that's locally saved in your system, even a physical device.
+CRUD (Create, Read, Update, Delete)
+
+- Create: POST
+- Read: GET
+- Update: PUT/ PATCH
+- Delete: DELETE
+
+We are going to set up a controller folder and make our first controller file called practice.controller.js.
+
+Sending a status code with a route response is good practice for both the user and developer.
+
+---
 
 ## Postman
-- Set Methods
+
+- Set Methods - w/ dropdown to the left of the url bar
   - GET / POST / PUT / DELETE depending on route
-  - Body
+  - Body, tab label under the url
     - raw (select the raw value radio button)
-    - JSON (blue dropdown to the right of the radio button)
+    - JSON (blue dropdown to the right of the radio buttons)
     - Make a JSON object (in the body area)
 
+---
+
 ## Preparing our server to handle JSON objects
+
 In our `app.js` we need to have this line of code:
+
 ```js
 app.use(express.json());
 ```
+
 This provides us access JSON files throughout our routes.
+
+---
+
+## MVC
+
+- Stands for Model View Controller
+- Architecture pattern(structure in which they are written/coded) that helps our Separation of Concerns
+- Model: Database schematic, the blueprint for our data (we dictate what created data looks like/it's datatype)
+- View: browser, Postman, etc. (what the users see)
+  - Application that interface with the server.
+- Controller: Part of the server application which handles logic. (How we build our logic within the server, we code and create what routes can be used and what they do.)
+
+---
+
+## Middleware
+
+- A function that accesses the request and response
+- Has a call stack
+  - request
+  - response
+  - next
+
+  ---
+
+  ## CORS
+
+  - Cross Origin Resource Sharing
+    - A preflight action:
+      - Checks to see what options are available for any type of requests PRIOR to our routes being triggered. (Checks to see if your request is available.)
+      - If headers do not match in our request: it can throw an error.
+      - Addthing this dependency(any external resource a program needs to work, ex an external library or service functionality) to our project can help resolve any of those issues: help our application
+
+
+      - Denpendency
+      - stop server and install as a dependency
+      - ```npm i cors```
+      - import within ```app.js``` above ```routes```.
