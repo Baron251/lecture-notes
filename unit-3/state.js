@@ -21,7 +21,7 @@ const listGames = (system) => {
       Nintendo64: ["Super Mario 64", "Mario Kart 64", "GoldenEye 007"],
     };
   
-    //console.log("Inside Function: ", collection["Nintendo64"]);
+    // console.log("Inside Function: ", collection["Nintendo64"]);
   
     return collection[system];
   };
@@ -123,7 +123,7 @@ const listGames = (system) => {
   
     // Establish which point in our state object that we want to reference
     let validTransitions = state[currentState];
-  
+    console.log("Valid Transitions: ",validTransitions)
     console.log(`\nThe light is currently: ${currentState}`);
   
     // Check if our key includes the state the user wants to transition/change to

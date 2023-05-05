@@ -12,7 +12,7 @@ const bcrypt = require("bcrypt");
 */
 const jwt = require("jsonwebtoken");
 // Create a variable to hold the secret from our .env for the token
-const SECRET = process.env.JWT
+const SECRET = process.env.JWT;
 
 // Create a function to show how our password is being used/encrypted (just a demo)
 // const testingBcrypt = (password) => {
@@ -57,9 +57,9 @@ router.post("/signup", async (req, res) => {
 		});
 
 		res.status(200).json({
-			potato: newUser,
+			user: newUser,
 			message: "Success! User Created!",
-			token
+			token,
 		});
 	} catch (err) {
 		res.status(500).json({
@@ -85,31 +85,34 @@ router.post("/login", async (req, res) => {
 	//res.send(req.body.email) // Used to test that endpoint is working
 
 	try {
-		
 		//1. Capture data provided by user (request body), use obj destructuring (easy to rab key/values)
-const { email, password } = req.body;
+		const { email, password } = req.body;
 
-        //2. Check database to see if email supplied exists
-		 //* .findOne() is a MongoDB method that accepts a query/filter as an argument. Returns an instance of a document(user JSON obj) that matches.
-		 // {email is key for what db is searching for : email = req.body.email from request}
-		const user = await User.findOne({email: email});
+		//2. Check database to see if email supplied exists
+		//* .findOne() is a MongoDB method that accepts a query/filter as an argument. Returns an instance of a document(user JSON obj) that matches.
+		// {email is key for what db is searching for : email = req.body.email from request}
+		const user = await User.findOne({ email: email });
 
 		// Write an error to catch if no user matches, quick response if no user in DB
 		if (!user) throw new Error("User not found.");
 
-        //3. If email exists, consider if password matches (decrypt).
-		 //
-		 const passwordMatch = await bcrypt.compare(password, user.password)
-        //4. After verified, provide a jwt token
-
-        //5. response status returned
-
+		//3. If email exists, consider if password matches (decrypt).
+		//
+		const passwordMatch = await bcrypt.compare(password, user.password);
+		if (!passwordMatch) throw new Error("Email or password doesn't match");
+		//4. After verified, provide a jwt token
+		const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1 day" });
+		//5. response status returned
+		res.status(200).json({
+			message: `Welcome ${user.firstName}`,
+			token,
+			user,
+		});
 	} catch (error) {
 		res.status(500).json({
-			msg: err.message
-		  })
-	  
+			msg: err.message,
+		});
 	}
-})
+});
 
 module.exports = router;
