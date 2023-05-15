@@ -34,7 +34,7 @@ let theSimpsons = {
 //   Examples of destructuring:
 const { characters, seasons } = theSimpsons;
 // console.log("Destructuring Characters:", characters);
-// console.log("Destructuring Seasons", seasons);
+console.log("Destructuring Seasons", seasons);
 
 characters.push("Meo"); // Typo
 characters[5] = "Moe";

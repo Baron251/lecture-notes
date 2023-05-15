@@ -1,5 +1,4 @@
 // ? Array Methods, awesome ways to do things with or to arrays
-
 let food = ["Pecan Pie", "Shrimp", "Quesadilla", "Hotdog"];
 
 // for(item of food){
@@ -53,11 +52,11 @@ let fruits = ["Kumquat", "Banana", "Peach", "Kiwi", "Papaya", "Mango"];
 
 // Use filter to remove peach
 
-// let filteredFruit = fruits.filter((item) => {
-//   let remainingFruit = item !== "Peach";
-//   console.log(`Remaining fruit: ${remainingFruit}`);
-//   return remainingFruit;
-// });
+let filteredFruit = fruits.filter((item) => {
+  let remainingFruit = item !== "Peach";
+  console.log(`Remaining fruit: ${remainingFruit}`);
+  return remainingFruit;
+});
 
 // console.log(filteredFruit);
 

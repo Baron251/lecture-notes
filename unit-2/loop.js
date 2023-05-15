@@ -23,32 +23,30 @@ for (i = 0; i <= 10; i++) {
 
 console.log("Finished with loop");
 
-for (i = 0; i <= 20; i+= 2){
-    console.log(i);
+for (i = 0; i <= 20; i += 2) {
+	console.log(i);
 }
 
 //Challenge: using a for loop, count from 10 to 0, going down by 1
 
 for (i = 10; i >= 0; i--) {
-    console.log(i);
+	console.log(i);
 }
 
 // for (i = 10; i > 0; i--) console.log(i); if using a straight return, don't have to use curly brackets
 
-
-let firstName= "Kate";
+let firstName = "Kate";
 
 for (let i = 0; i < firstName.length; i++) {
-    console.log(i, firstName[i])
+	console.log(i, firstName[i]);
 }
-
 
 let sum = 0;
 
-for (let i = 1; i<=5; i++){
-    console.log("Before: ", sum);
-    sum += i;
-    console.log("After: ", sum)
+for (let i = 1; i <= 5; i++) {
+	console.log("Before: ", sum);
+	sum += i;
+	console.log("After: ", sum);
 }
 console.log(sum);
 
@@ -63,35 +61,34 @@ console.log(sum);
 */
 
 let student = {
-    name: "Peter",
-    awesome: true,
-    degree: "JavaScript"
+	name: "Peter",
+	awesome: true,
+	degree: "JavaScript",
 };
 
 // console.log(student["name"]);  pulls out the value of "name" from the object, "name" is the key
 
 for (item in student) {
-    console.log(item);
-    console.log(student[item]);
+	console.log(item);
+	console.log(student[item]);
 }
 
 let catArray = [
-    "tabby",
-    "british shorthair",
-    "burmese",
-    "maine coon",
-    "rag doll",
-  ];
+	"tabby",
+	"british shorthair",
+	"burmese",
+	"maine coon",
+	"rag doll",
+];
 
 /* 
     ! For in can be used on objects and arrays, but if array index order is important it's better to use a for loop, for of loop, or Array.forEach() method.
 */
 
-
-  for (cat in catArray) {
-    console.log(cat);
-    console.log(catArray[cat]);
-  }
+for (cat in catArray) {
+	console.log(cat);
+	console.log(catArray[cat]);
+}
 
 //   ? For Of Loops: loops through the values of an iterable object
 /* 
@@ -113,14 +110,13 @@ let catArray = [
 // }
 
 for (cat of catArray) {
-    console.log("FOR OF LOOP ", cat)
+	console.log("FOR OF LOOP ", cat);
 }
 
-
 for (bubbles of catArray) {
-    if(bubbles === "maine coon"){
-        console.log(`My favorite cat is the ${bubbles}!!!`)
-    } else {
-        console.log("Not a maine coon... :( ")
-    }
+	if (bubbles === "maine coon") {
+		console.log(`My favorite cat is the ${bubbles}!!!`);
+	} else {
+		console.log("Not a maine coon... :( ");
+	}
 }
