@@ -44,6 +44,7 @@ function App() {
 			{/* <Welcome name={name} /> was replaced by the mapping function above(displayWelcome)*/}
 			{names.length > 0 ? (
 				displayWelcome()
+				
 			) : (
 				<div>
 					<h1 style={{ textAlign: "center" }}>Add a New User!</h1>

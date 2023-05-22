@@ -12,6 +12,7 @@ const movies = require("./controllers/movie.controller")
 
 // --------------------------------- Middleware: ------------------------------------
 const validateSession = require("./middleware/validate-session")
+const cors = require('cors')
 
 
 
@@ -39,6 +40,7 @@ db.once("open", () => log(`Connected: ${MONGO}`));
 
 // Added to allow us to accept JSON data from the body of our client.
 app.use(express.json())
+app.use(cors())
 
 // -------------------------------- Routes to Controllers --------------------------
 app.use("/user", users)
