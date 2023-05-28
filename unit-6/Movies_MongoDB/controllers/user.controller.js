@@ -115,4 +115,43 @@ router.post("/login", async (req, res) => {
 	}
 });
 
+router.get("/getusers", async (req, res) => {
+	try {
+		const getAllUsers = await User.find();
+
+		getAllUsers
+			? res.status(200).json({
+					message: "All users",
+					getAllUsers,
+			  })
+			: res.status(404).json({
+					message: `... What happened to everybody?`,
+			  });
+	} catch (error) {
+		res.status(500).json({
+			msg: err.message,
+		});
+	}
+});
+
+router.get("/user/:singleuser", async (req, res) => {
+	try {
+		const { singleuser } = req.params;
+		const getUser = await User.find({ _id: singleuser });
+
+		getUser.length > 0
+			? res.status(200).json({
+				getUser
+			})
+			: res.status(404).json({
+				message: `No such user found`
+			})
+
+	} catch (error) {
+		res.status(500).json({
+			msg: err.message,
+		});
+	}
+});
+
 module.exports = router;

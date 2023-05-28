@@ -28,6 +28,7 @@ router.post("/", validateSession, async (req, res) => {
 			length: req.body.length,
 			releaseYear: req.body.releaseYear,
 			owner_id: req.user._id,
+			// name: req.user.firstName
 		});
 
 		//3. Use mongoose method to save to MongoDB
